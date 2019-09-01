@@ -1,0 +1,16 @@
+1914 is intended to be a realistic war simulator. I feel that establishing a demo of the engine using simpler medieval warfare mechanics will give us a clear framework for our battle system. An army is essentially an array of smaller arrays, which are usually made of 4 man groups/squads/fireteams. These will be the smallest unitsize and interaction with them when playing will be allowed but limited. The actual heirarchey tree is like this, individual soldiers, cell (consists of 4 instances of class objects of individual soldiers and returns this list when initialized. lance corporals ) squadrons are less commonly used and are simply a matrix of 2 cells, corporal or seargeant led. The largest subunit is a section, which consists of 1-2 squadrons. notice how the organization of troops allows us to initialize a formation or unit with any subunit, since they're all just matrices of soldier instances. 
+
+This way, the game can handle the reforming of individual soldiers, fractured units, etc. and into any size subunit using any other smaller subunit. 
+
+So in the case of a section, suppose you have 3 sections that each took major losses in the last fight and are fragments of their initial force. The game will get the number of remaining troops, and try arranging them into complete subunits starting with the biggest possible subunit and then doing the same with the remaining troops. First, they will assemble into cells of 4, then grouped into pairs of cells to form squadrons, those will form into sections if possible. 
+
+ANyways, here's a table of our subunits:
+soldier: 1 troop, smallest component of army
+cell: init 3 troops, 3-4 troopsize, lance corporal-seargeant
+squad: init 9 troops or 3 cells, can be 8-12 troops or 2-3 cells, corporal or seargeant
+section/patrol: init 18 troops or 2 squads, can be 12-24 troops or 1-2+ squads or 3-6 cells, seargeant or staffseargeant
+
+#Here begins the more interactive structures, platoon is the smallest structure you can pass on complete orders to 
+platoon: init 36 troops or 2sections, can be 26-55 strong or 2+sections, first or second lieutenant
+company: init 144 troops or 4 platoons, can be 80-250 strong or 2-8 platoons, captain or major
+battalion: init 432 troops or 
