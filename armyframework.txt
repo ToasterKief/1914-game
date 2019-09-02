@@ -13,4 +13,8 @@ section/patrol: init 18 troops or 2 squads, can be 12-24 troops or 1-2+ squads o
 #Here begins the more interactive structures, platoon is the smallest structure you can pass on complete orders to 
 platoon: init 36 troops or 2sections, can be 26-55 strong or 2+sections, first or second lieutenant
 company: init 144 troops or 4 platoons, can be 80-250 strong or 2-8 platoons, captain or major
-battalion: init 432 troops or 
+battalion: init 432 troops or 4 companies can be 300-1000 strong or 2-6 companies, lieutenant colonel
+regiment: init 1296 troops or 2 battalions can be 1000-3000 strong or 2+ battalions, colonel
+army: init 3888 troops or 3 regiments can be 3000 - 5000 
+
+
